@@ -50,7 +50,7 @@ class Required extends BaseKeyword
     public function validate($data, array $required): void
     {
         try {
-            Validator::arrayType()->assert($data);
+            //Validator::arrayType()->assert($data);
             Validator::arrayType()->assert($required);
             Validator::each(Validator::stringType())->assert($required);
             Validator::trueVal()->assert(count(array_unique($required)) === count($required));
