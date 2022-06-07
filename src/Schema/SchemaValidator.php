@@ -57,10 +57,8 @@ final class SchemaValidator implements Validator
 
         try {
             // These keywords are not part of the JSON Schema at all (new to OAS)
-            if (!is_null($schema->nullable)) {
-                (new Nullable($schema))->validate($data, $schema->nullable);
-            }
-
+            (new Nullable($schema))->validate($data, $schema->nullable ?? true);
+            
             // We don't want to validate any more if the value is a valid Null
             if ($data === null) {
                 return;
