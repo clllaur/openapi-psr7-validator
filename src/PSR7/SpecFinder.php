@@ -152,15 +152,14 @@ final class SpecFinder
         $opSpec = $this->findOperationSpec($addr);
 
         // 1. Collect security params
-        if (property_exists($opSpec->getSerializableData(), 'security')) {
-            // security is set on operation level
-            $securitySpecs = $opSpec->security;
-        } else {
-            // security is set on root level (fallback option)
-            $securitySpecs = $this->openApi->security;
+        $securitySpecs = $opSpec->security;
+
+        // security is set on operation level
+        if (!empty($securitySpecs)) {
+            return (array) $securitySpecs;
         }
 
-        return $securitySpecs;
+        return (array) $this->openApi->security;
     }
 
     /**
