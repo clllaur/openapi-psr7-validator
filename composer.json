@@ -23,7 +23,7 @@
     "require": {
         "php": ">=7.2",
         "ext-json": "*",
-        "cebe/php-openapi": "^1.8",
+        "devizzent/cebe-php-openapi": "^1.0",
         "league/uri": "^7.5",
         "psr/cache": "^1.0 || ^2.0 || ^3.0",
         "psr/http-message": "^1.0",
